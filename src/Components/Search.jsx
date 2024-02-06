@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import "../CSS/SearchBar.css"
 import magnifyingGlass from "../Assests/Images/mag-glass.png"
 import { useState } from "react";
@@ -6,6 +6,8 @@ import { useState } from "react";
 const SearchBar = () => {
 
     const [query, setQuery] = useState("");
+
+    console.log(query)
 
     return(
         <div className = "search-bar">

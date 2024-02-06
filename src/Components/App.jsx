@@ -1,4 +1,4 @@
-import react from "react"
+import React from "react";
 import "../CSS/App.css"
 import Header from "./Header";
 import SearchBar from "./Search";

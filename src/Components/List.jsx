@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import "../CSS/List.css";
 import searchResults from "../Data/searchResults";
 import ListItem from "./ListItem";

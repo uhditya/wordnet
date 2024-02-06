@@ -1,4 +1,4 @@
-import react from "react"
+import React from "react"
 import Sanskrit from "../Assests/Images/Sanskrit-logo.jpg"
 import "../CSS/Header.css"
 
