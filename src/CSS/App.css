@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    border-radius: 25px;
+    background: #EBD9B4;
+    padding: 20px;  
+    width: 96%;
+    height: 100%;
+    margin: auto;
+    flex-direction: column;
+    justify-content:flex-start;
+  }
