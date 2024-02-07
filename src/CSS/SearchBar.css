@@ -1,4 +1,4 @@
-button {
+button{
   align-items: center;
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -53,6 +53,55 @@ button:active {
     padding-bottom: 25px;
 }
 
+.search-button{
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content{
+  display: none;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  position:absolute;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  /* padding: calc(.875rem - 1px) calc(1.5rem - 1px); */
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+  align-items: center;
+  text-align: center;
+}
+
+.dropdown-content p{
+  display:flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing:border-box;
+  overflow: hidden;
+  line-height: 1.75;
+  margin: 0;
+  min-height: 3rem;
+  transition: all 250ms;
+  justify-content: space-evenly;
+}
+
 .search-input{
     padding-left : 20px;
     flex-grow: 1;
@@ -92,3 +141,10 @@ input[type = "text"]::placeholder{
       -2px -2px 6px rgba(#fff, .6),
       2px 2px 12px #c8d8e7;
 }
+ 
+.dropdown-content p:hover {background-color: #F0F0F1;}
+
+/* Show the dropdown menu on hover */
+.search-button:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */

@@ -12,7 +12,12 @@ const SearchBar = () => {
     return(
         <div className = "search-bar">
             <div className = "search-button">
-                <button>Lemma</button>
+                <button className="drop-btn">Lemma</button>
+                <div className="dropdown-content">
+                    <p>Lemma</p>
+                    <p>Identifier</p>
+                    <p>Interlingual Identifier</p>
+                </div>
             </div>
             <div className = "search-input">
                 <input placeholder="Please enter the word" type = "text" onChange={(event) => {setQuery(event.target.value)}}/>
