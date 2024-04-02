@@ -7,7 +7,7 @@ const fetchData = (word) => {
       "bolt://44.200.7.33:7687",
       // neo4j.auth.basic("neo4j", "alignments-energies-sum"),
       neo4j.auth.basic("neo4j", "midwatches-thirteens-backgrounds"),
-    );
+    ); 
 
     const query = `
       // MATCH (movie:Movie {title:$favorite})<-[:ACTED_IN]-(actor)-[:ACTED_IN]->(rec:Movie)
