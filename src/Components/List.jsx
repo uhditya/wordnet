@@ -32,7 +32,7 @@ export const List = ({ queryResult, searched }) => {
           />
         ))} */}
         {queryResult.map((item) => {
-          return <ListItem lemma={item.title} />;
+          return <ListItem lemma={item.lemma} key = {item.id} type = {item.pos}/>;
         })}
       </div>
     </div>
