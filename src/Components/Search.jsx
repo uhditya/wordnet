@@ -21,7 +21,9 @@ const SearchBar = ({ onSearch }) => {
           placeholder="Please enter the word"
           type="text"
           onChange={(event) => {
-            setQuery(event.target.value);
+            let val = event.target.value;
+
+            setQuery(val);
           }}
           value={query}
         />
