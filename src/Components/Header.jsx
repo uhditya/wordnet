@@ -9,7 +9,7 @@ const Header = () => {
                     <img src = {Sanskrit} alt = "Sanskrit logo" id = "sans1"/>
             </div>
             <div className = "header-title">
-                <h1>Open Sanskrit Wordnet</h1>
+                <h1>Sanskrit Wordnet</h1>
             </div>
         </div>
     )
