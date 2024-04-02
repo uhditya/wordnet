@@ -5,10 +5,12 @@ import SearchBar from "./Search";
 import List from "./List";
 import fetchData from "../Data/FetchData";
 import { useState } from "react";
+import Upload from "./Upload";
 
 const App = () => {
   const [fetchedData, setFetchedData] = useState([]);
   const [searched, setSearched] = useState(false);
+  const [queryType, setQueryType] = useState("search")
 
   const getResults = (word) => {
     fetchData(word)
@@ -24,6 +26,10 @@ const App = () => {
       })
   };
 
+  const handleTypeChange = (type) => {
+    setQueryType(type);
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -31,10 +37,10 @@ const App = () => {
           <Header />
         </div>
         <div className="search">
-          <SearchBar onSearch={getResults} />
+          <SearchBar onSearch={getResults} onTypeChange={handleTypeChange}/>
         </div>
         <div className="search-results">
-          <List queryResult={fetchedData} searched = {searched}/>
+        {queryType === "search" ?  <List queryResult={fetchedData} searched = {searched}/> : <Upload />}
         </div>
       </div>
     </div>
