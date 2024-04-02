@@ -10,9 +10,18 @@
     justify-content:flex-start;
     flex-grow : 1;
     overflow: hidden;
+    border-radius: 50px;
+    background: #FFFFFF;
+    box-shadow:  10px 10px 40px #d9d9d9,
+             -10x -10px 40px #ffffff;
     /* box-sizing: border-box; */
 }
 
 .list{
     padding-left:20px
+}
+
+.emptyResult{
+    color: red;
+    text-align: center;
 }
