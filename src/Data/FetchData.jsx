@@ -7,7 +7,7 @@ const fetchData = (word) => {
       "bolt://44.200.7.33:7687",
       // neo4j.auth.basic("neo4j", "alignments-energies-sum"),
       neo4j.auth.basic("neo4j", "midwatches-thirteens-backgrounds"),
-    );
+    ); 
 
     const query = `
       // MATCH (movie:Movie {title:$favorite})<-[:ACTED_IN]-(actor)-[:ACTED_IN]->(rec:Movie)
@@ -31,12 +31,15 @@ const fetchData = (word) => {
 
         const uniqueArray = Array.from(fetchedData.reduce((map, obj) => map.set(obj.id, obj), new Map()).values());
 
-
+        const uniqueArrayWithoutSpaces = uniqueArray.filter(obj => {
+          return typeof obj.lemma === 'string' && !obj.lemma.includes(' ');
+        });
+        
         // console.log(result.records[0].get("n").properties.lemma);
         // console.log(fetchedData);
         session.close();
         driver.close();
-        resolve(uniqueArray); // Resolve with fetched data
+        resolve(uniqueArrayWithoutSpaces); // Resolve with fetched data
       })
       .catch((error) => {
         console.error("Error executing query:", error);
