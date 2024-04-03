@@ -1,27 +1,41 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function Upload() {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [file, setFile] = useState(null);
+  const [downloadLink, setDownloadLink] = useState('');
 
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+    setFile(event.target.files[0]);
   };
 
   const handleUpload = () => {
-    // Here you can implement the file upload logic, such as sending the file to a server
-    // For demonstration purposes, we'll just log the file details
-    if (selectedFile) {
-      console.log('Selected file:', selectedFile);
-      // You can perform further operations here, like sending the file to a server using axios or Fetch API
-    } else {
-      console.log('No file selected');
-    }
+    const formData = new FormData();
+    formData.append('file', file);
+
+    axios.post('http://localhost:5000/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+    .then(response => {
+      // Set the download link received from the server
+      setDownloadLink(response.data.downloadLink);
+    })
+    .catch(error => {
+      alert("There was some error in processing the file");
+    });
   };
 
   return (
-    <div style = {{alignContent : "center"}}>
-      <input type="file" onChange={handleFileChange} style = {{width : "21%", paddingBottom : "10px"}}/>
+    <div>
+      <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Upload</button>
+      {downloadLink && (
+        <div>
+          <a href={downloadLink} download>Download Modified File</a>
+        </div>
+      )}
     </div>
   );
 }

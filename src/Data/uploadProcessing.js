@@ -6,7 +6,13 @@ const cors = require('cors');
 const app = express();
 const port = 5000;
 
-app.use((cors()));
+const corsOptions = {
+  origin: 'http://localhost:3000', // Allow requests from this origin
+  methods: ['GET', 'POST'], // Allow only specified methods
+  allowedHeaders: ['Content-Type'], // Allow only specified headers
+};
+
+app.use(cors(corsOptions));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
