@@ -3,7 +3,7 @@ import "../CSS/SearchBar.css";
 import magnifyingGlass from "../Assests/Images/mag-glass.png";
 import { useState } from "react";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, onTypeChange }) => {
   const [query, setQuery] = useState(" ");
 
   return (
@@ -11,9 +11,8 @@ const SearchBar = ({ onSearch }) => {
       <div className="search-button">
         <button className="drop-btn">Lemma</button>
         <div className="dropdown-content">
-          <p>Lemma</p>
-          <p>Identifier</p>
-          <p>Interlingual Identifier</p>
+          <p onClick = {() => onTypeChange("search")}>Lemma</p>
+          <p onClick = {() => onTypeChange("pdf")}>Document</p>
         </div>
       </div>
       <div className="search-input">
